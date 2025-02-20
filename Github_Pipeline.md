@@ -1,4 +1,4 @@
-Note để đọc cái này đẹp thì ae dùng cái extension e gửi kèm (image.png)
+Note để đọc cái này đẹp thì ae dùng cái extension e gửi kèm (image.png) hoặc đọc trên github
 
 **Hướng dẫn quy trình làm việc với Git**
 
