@@ -32,7 +32,6 @@ class DataLoader:
 
                     # Kết hợp nhiều đặc trưng
                     features = np.hstack([Feature_Extractor_Factory.extract_feature(extractor,image) for extractor in self.feature_extractors])
-                    
                     X.append(features)
                     y.append(class_folder)  # Nhãn là tên thư mục con
 
