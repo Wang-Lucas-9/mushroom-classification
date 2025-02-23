@@ -48,6 +48,9 @@ class Feature_Extractor_Factory:
         return -np.sign(hu_moments) * np.log10(np.abs(hu_moments) + 1e-10)
     
     @staticmethod
+    
+
+    @staticmethod
     def extract_feature(method,image, **kwargs):
         
         methods={
