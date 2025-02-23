@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from skimage.measure import moments_zernike
+# from skimage.measure import moments_zernike
 class Feature_Extractor_Factory:
 
 
@@ -47,13 +47,13 @@ class Feature_Extractor_Factory:
         hu_moments = cv2.HuMoments(moments).flatten()
         return -np.sign(hu_moments) * np.log10(np.abs(hu_moments) + 1e-10)
     
-    @staticmethod
-    def extract_zernike_moments(image, radius=21, degree=8):
-        """Extracts Zernike moments from the grayscale image."""
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        normalized_gray = gray.astype(np.float32) / 255.0  # Normalize to [0, 1]
-        moments = [moments_zernike(normalized_gray, radius, order) for order in range(degree + 1)]
-        return np.array(moments, dtype=np.float32)
+    # @staticmethod
+    # def extract_zernike_moments(image, radius=21, degree=8):
+    #     """Extracts Zernike moments from the grayscale image."""
+    #     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    #     normalized_gray = gray.astype(np.float32) / 255.0  # Normalize to [0, 1]
+    #     moments = [moments_zernike(normalized_gray, radius, order) for order in range(degree + 1)]
+    #     return np.array(moments, dtype=np.float32)
 
     @staticmethod
     def extract_feature(method,image, **kwargs):
@@ -62,7 +62,7 @@ class Feature_Extractor_Factory:
             'color_histogram':Feature_Extractor_Factory.extract_color_histogram,
             'contour_features':Feature_Extractor_Factory.extract_contour_features,
             'hu_moments':Feature_Extractor_Factory.extract_hu_moments,
-            'zernike_moments': Feature_Extractor_Factory.extract_zernike_moments
+            # 'zernike_moments': Feature_Extractor_Factory.extract_zernike_moments
         }
         if method not in methods:
             raise ValueError(f"Invalid method: {method}")

@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-
+from Features_Ex import Feature_Extractor_Factory
 class DataLoader:
     def __init__(self, dataset_path, feature_extractors):
         """
@@ -31,7 +31,7 @@ class DataLoader:
                         continue  
 
                     # Kết hợp nhiều đặc trưng
-                    features = np.hstack([extractor(image) for extractor in self.feature_extractors])
+                    features = np.hstack([Feature_Extractor_Factory.extract_feature(extractor,image) for extractor in self.feature_extractors])
                     
                     X.append(features)
                     y.append(class_folder)  # Nhãn là tên thư mục con
